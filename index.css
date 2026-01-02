@@ -1,0 +1,196 @@
+.navbar {
+  background-color: #ff5100;
+}
+.navbar-brand {
+  color: #ffffff;
+}
+.nav-pills .nav-link.active {
+  background-color: #ffffff;
+  color: #ff5100;
+}
+.nav-pills .nav-link:not(.active):hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.101);
+}
+h1 {
+  text-align: center;
+  margin: 30px;
+}
+td img {
+  width: 300px;
+}
+
+.home img {
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+footer {
+  margin-top: 100px;
+  text-align: center;
+  background-color: #ff5100;
+  padding: 10px;
+}
+
+.card {
+  background-color: #ff5100;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.menuts button a {
+  text-decoration: none;
+  color: #252525;
+}
+.menuts button {
+  background-color: #ff5100;
+  border: 0px;
+  padding-top: 7px;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+.menuts button :hover {
+  background-color: #e74a02;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border: solid #e74a02;
+  border-radius: 6px;
+  color: #ffffff;
+}
+button {
+  background-color: #000000;
+  border: solid white;
+  border-radius: 10px;
+  color: white;
+}
+#jadwal {
+  background-color: #ff6201;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+#jadwal h1 {
+  background-color: rgb(135, 48, 1);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 0px;
+  text-align: center;
+}
+#profile {
+  background-color: rgb(246, 82, 0);
+  padding: 5px;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+}
+.home .slide {
+  background-color: rgb(246, 82, 0);
+  padding: 20px;
+  border-radius: 20px;
+}
+.home .kartu {
+  background-color: rgb(246, 82, 0);
+  border-radius: 20px;
+  margin-top: 30px;
+  padding: 15px;
+}
+#profile h3 {
+  background-color: rgb(135, 45, 0);
+  padding: 10px;
+  border-radius: 20px;
+}
+.home .slide h2 {
+  background-color: rgb(135, 45, 0);
+  padding: 10px;
+  border-radius: 20px;
+}
+.home .kartu h2 {
+  background-color: rgb(135, 45, 0);
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+/*-----------------------------------------------*/
+body.night {
+  background-color: #343434;
+  color: white;
+}
+.night h2 {
+  color: #ffffff;
+}
+.night .navbar {
+  background-color: #2b2b2b;
+}
+.night .navbar-brand {
+  color: #ff5100;
+}
+
+.night .nav-pills .nav-link.active {
+  background-color: #1e1e1e;
+  color: #ff6924;
+  border: 1px solid #ff6924;
+}
+
+.night .nav-pills .nav-link:not(.active):hover {
+  color: #ff6924;
+  background-color: #ffffff1a;
+}
+
+.night .nav-pills .nav-link:not(.active) {
+  color: #ff6924;
+}
+.night footer {
+  margin-top: 100px;
+  text-align: center;
+  background-color: #2f2e2e;
+  color: #ff6924;
+  padding: 10px;
+}
+.night .card {
+  background-color: #181818;
+  color: #ff6924;
+  margin-right: 10px;
+}
+.night .menuts button a {
+  text-decoration: none;
+  color: #e74a02;
+}
+.night .menuts button {
+  background-color: #2a2a2a;
+
+  border: 0px;
+  padding-top: 7px;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+.night .menuts button :hover {
+  background-color: #2f2f2f;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border: solid #e74a02;
+  border-radius: 6px;
+}
+.night #jadwal {
+  background-color: #222222;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.night #jadwal h1 {
+  background-color: rgb(26, 26, 26);
+  color: #e74a02;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 0px;
+  text-align: center;
+}
+.alert {
+    border-radius: 10px;      
+    padding: 15px 25px;        
+    margin-top: 20px; 
+    margin:0 auto;
+    max-width: 200px;  
+    align-items: center;             
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+}
