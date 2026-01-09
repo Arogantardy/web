@@ -13,7 +13,7 @@
                     include "koneksi.php";
 
                  $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
-$limit = 3;
+$limit = 4;
 $limit_start = ($hlm - 1) * $limit;
 $no = $limit_start + 1;
 
@@ -40,7 +40,7 @@ $hasil = $conn->query($sql);
                                 }
                                 ?>
                             </td>
-                            <td>
+                          
                                 <td>
     <a href="#" title="edit" class="badge rounded-pill text-bg-success" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil"></i></a>
     <a href="#" title="delete" class="badge rounded-pill text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>
