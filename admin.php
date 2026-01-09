@@ -44,9 +44,9 @@ if (!isset($_SESSION['username'])) {
         }
     </style>
 </head>
-<body>
+<body class=" bg-dark text-warning" > 
     <!-- nav begin -->
-    <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top bg-danger-subtle">
+    <nav class="navbar navbar-expand-sm bg-warning text-dark sticky-top">
     <div class="container">
         <a class="navbar-brand" target="_blank" href=".">My Daily Journal</a>
         <button
@@ -68,12 +68,18 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=article">Article</a>
             </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=user">User</a>
+            </li>  
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle bg-dark text-warning fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?= $_SESSION['username']?>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="logout.php">Logout</a></li> 
+                <ul class="dropdown-menu border-warning bg-dark">
+                    <li><a class="dropdown-item text-danger" href="logout.php">Logout</a></li> 
                 </ul>
             </li> 
         </ul>
@@ -87,12 +93,12 @@ if (!isset($_SESSION['username'])) {
         <?php
         if(isset($_GET['page'])){
         ?>
-            <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle"><?= ucfirst($_GET['page'])?></h4>
+            <h4 class="lead display-6 pb-2 border-bottom border-warning-subtle"><?= ucfirst($_GET['page'])?></h4>
             <?php
             include($_GET['page'].".php");
         }else{
         ?>
-            <h4 class="lead display-6 pb-2 border-bottom border-danger-subtle">Dashboard</h4>
+            <h4 class="lead display-6 pb-2 border-bottom border-warning-subtle">Dashboard</h4>
             <?php
             include("dashboard.php");
         }
@@ -109,7 +115,7 @@ if (!isset($_SESSION['username'])) {
     <!-- content end -->
      
     <!-- footer begin -->
-    <footer class="text-center p-5 bg-danger-subtle">
+    <footer class="text-center p-5 bg-warning text-dark">
     <div>
         <a href="https://www.instagram.com/udinusofficial"
         ><i class="bi bi-instagram h2 p-2 text-dark"></i
@@ -131,48 +137,3 @@ if (!isset($_SESSION['username'])) {
     ></script>
 </body>
 </html> 
-<?php
-//query untuk mengambil data article
-$sql1 = "SELECT * FROM article ORDER BY tanggal DESC";
-$hasil1 = $conn->query($sql1);
-
-//menghitung jumlah baris data article
-$jumlah_article = $hasil1->num_rows;
-
-//query untuk mengambil data gallery
-//$sql2 = "SELECT * FROM gallery ORDER BY tanggal DESC";
-//$hasil2 = $conn->query($sql2);
-
-//menghitung jumlah baris data gallery
-//$jumlah_gallery = $hasil2->num_rows;
-?>
-<div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center pt-4">
-    <div class="col">
-        <div class="card border border-danger mb-3 shadow" style="max-width: 18rem;">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div class="p-3">
-                        <h5 class="card-title"><i class="bi bi-newspaper"></i> Article</h5> 
-                    </div>
-                    <div class="p-3">
-                        <span class="badge rounded-pill text-bg-danger fs-2"><?php echo $jumlah_article; ?></span>
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </div> 
-    <div class="col">
-        <div class="card border border-danger mb-3 shadow" style="max-width: 18rem;">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div class="p-3">
-                        <h5 class="card-title"><i class="bi bi-camera"></i> Gallery</h5> 
-                    </div>
-                    <div class="p-3">
-                        <span class="badge rounded-pill text-bg-danger fs-2"><?php //echo $jumlah_gallery; ?></span>
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </div> 
-</div>
