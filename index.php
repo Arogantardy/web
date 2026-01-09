@@ -67,34 +67,20 @@ include "koneksi.php";
                 <a href="#jadwal">Jadwal</a>
               </button>
             </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="pills-profile-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-profile"
-                type="button"
-                role="tab"
-                aria-controls="pills-profile"
-                aria-selected="false"
-              >
-                Gallery
+            <li class="menuts">
+              <button>
+                <a href="#article">Article</a>
               </button>
             </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="pills-contact-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-contact"
-                type="button"
-                role="tab"
-                aria-controls="pills-contact"
-                aria-selected="false"
-              >
-                Contact
-              </button >
+               <li class="menuts">
+              <button>
+                <a href="#galery">Gallery</a>
+              </button>
             </li>
+           <li class="menuts">
+              <button>
+                <a href="#guest">Contact</a>
+              </button>
          <li style="padding-left: 10px; padding-top: 5px;">
   <button class="night" onclick="ubahwarnadark()">
     <i class="bi bi-moon-stars-fill"></i>
@@ -204,39 +190,43 @@ include "koneksi.php";
 </div>
           </div>
           <!-- article begin -->
-<section id="article" class="text-center p-5">
-  <div class="container">
-    <h1 class="fw-bold display-4 pb-3">article</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-      <?php
-      $sql = "SELECT * FROM article ORDER BY tanggal DESC";
-      $hasil = $conn->query($sql); 
+           <div id="article">
 
-      while($row = $hasil->fetch_assoc()){
-      ?>
-        <div class="col">
-          <div class="card h-100">
-            <img src="img/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title"><?= $row["judul"]?></h5>
-              <p class="card-text">
-                <?= $row["isi"]?>
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-body-secondary">
-                <?= $row["tanggal"]?>
-              </small>
-            </div>
-          </div>
-        </div>
-        <?php
-      }
-      ?> 
-    </div>
-  </div>
-</section>
-<!-- article end -->
+             <section id="article" class="text-center p-5">
+               <div class="container">
+                 <h1 class="fw-bold display-4 pb-3">article</h1>
+                 <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                   <?php
+                   $sql = "SELECT * FROM article ORDER BY tanggal DESC";
+                   $hasil = $conn->query($sql); 
+             
+                   while($row = $hasil->fetch_assoc()){
+                   ?>
+                     <div class="col">
+                       <div class="card h-100">
+                         <img src="img/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
+                         <div class="card-body">
+                           <h5 class="card-title"><?= $row["judul"]?></h5>
+                           <p class="card-text">
+                             <?= $row["isi"]?>
+                           </p>
+                         </div>
+                         <div class="card-footer">
+                           <small class="text-body-secondary">
+                             <?= $row["tanggal"]?>
+                           </small>
+                         </div>
+                       </div>
+                     </div>
+                     <?php
+                   }
+                   ?> 
+                 </div>
+               </div>
+             </section>
+
+           </div>
+                  <!-- article end -->
 
  <div id="jadwal">
   <h1>JADWAL PERKULIAHAN DAN KEGIATAN MAHASISWA</h1>
@@ -336,96 +326,91 @@ include "koneksi.php";
 </div>
      </div>
         </div>
-        <div
-          class="tab-pane fade"
-          id="pills-profile"
-          role="tabpanel"
-          aria-labelledby="pills-profile-tab"
-          tabindex="0"
-        >
-        <h1>GALLERY</h1>
-        <div class="gallery">
-            <section style="display: flex; justify-content: center">
-              <table border="1" cellpadding="0" cellspacing="0">
-                <tbody>
-                  <tr>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                  </tr>
-        
-                  <tr>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                  </tr>
-        
-                  <tr>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                    <td><img src="tabel.png" alt="tabel" /></td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
+               <!-- gallery begin -->
+                <div id="galery">
+                  <section id="gallery" class="text-center p-5">
+                    <div class="container">
+                      <h1 class="fw-bold display-4 pb-3">Gallery</h1>
+                      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                        <?php
+                        $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+                        $hasil = $conn->query($sql); 
+                  
+                        while($row = $hasil->fetch_assoc()){
+                        ?>
+                          <div class="col">
+                            <div class="card h-100">
+                              <img src="img/<?= $row["gambar"]?>" class="card-img-top" alt="..." />
+                              <div class="card-body">
+                                <h5 class="card-title"><?= $row["judul"]?></h5>
+                                <p class="card-text">
+                                </p>
+                              </div>
+                              <div class="card-footer">
+                                <small class="text-body-secondary">
+                                  <?= $row["tanggal"]?>
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                          <?php
+                        }
+                        ?> 
+                      </div>
+                    </div>
+                  </section>
+            
+<!-- gallery end -->
+</div>
+<div id="guest">
+  <h1>CONTACT</h1>
+  <h3> GUEST BOOK</h3>
+ <form action="">
+ Nama : <br />
+ <input type="text" name="nm" size="30" /> <br />
+ Jenis Kelamin : <br />
+ Laki :<input type="radio" name="jk" value="L" /> Wanita :<input
+   type="radio"
+   name="jk"
+   value="P"
+ />
+ <br />
+ Alamat : <br />
+ <input type="text" name="nm" size="50" /> <br />
+ Email : <br />
+ <input type="text" name="nm" size="30" /> <br />
+ Sosial Media <br />
+ <input type="checkbox" name="Facebook" value="Ya" />Facebook
+ <input type="checkbox" name="Youtube" value="Ya" /> Youtube
+ <input type="checkbox" name="Tiktok" value="Ya" /> Tiktok
+ <input type="checkbox" name="Instagram" value="Ya" /> Instagram <br />
+ Dapat Info Dari : <br />
+ <select name="Info">
+   <option selected="select">_=Pilih=</option>
+   <option value="Web">Web</option>
+   <option value="Teman">Teman</option>
+   <option value="Brosur">Brosur</option>
+ </select>
+ <br />
+ Pesan : <br />
+ <textarea name="Pesan" cols="40" rows="3"></textarea> <br />
+ <input type="submit" value="Kirim" />
+ <input type="reset" value="Batal" />
+ </form>
+ </section>
+ </div>
+ <div
+   class="tab-pane fade"
+   id="pills-disabled"
+   role="tabpanel"
+   aria-labelledby="pills-disabled-tab"
+   tabindex="0"
+ >
+   Ini adalah konten tab Disabled.
+ </div>
+     </div>
 
-        </div>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="pills-contact"
-          role="tabpanel"
-          aria-labelledby="pills-contact-tab"
-          tabindex="0"
-        >
-         <h3> GUEST BOOK</h3>
-      <form action="">
-        Nama : <br />
-        <input type="text" name="nm" size="30" /> <br />
-        Jenis Kelamin : <br />
-        Laki :<input type="radio" name="jk" value="L" /> Wanita :<input
-          type="radio"
-          name="jk"
-          value="P"
-        />
-        <br />
-        Alamat : <br />
-        <input type="text" name="nm" size="50" /> <br />
-        Email : <br />
-        <input type="text" name="nm" size="30" /> <br />
-        Sosial Media <br />
-        <input type="checkbox" name="Facebook" value="Ya" />Facebook
-        <input type="checkbox" name="Youtube" value="Ya" /> Youtube
-        <input type="checkbox" name="Tiktok" value="Ya" /> Tiktok
-        <input type="checkbox" name="Instagram" value="Ya" /> Instagram <br />
-        Dapat Info Dari : <br />
-        <select name="Info">
-          <option selected="select">_=Pilih=</option>
-          <option value="Web">Web</option>
-          <option value="Teman">Teman</option>
-          <option value="Brosur">Brosur</option>
-        </select>
-        <br />
-        Pesan : <br />
-        <textarea name="Pesan" cols="40" rows="3"></textarea> <br />
-        <input type="submit" value="Kirim" />
-        <input type="reset" value="Batal" />
-      </form>
-    </section>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="pills-disabled"
-          role="tabpanel"
-          aria-labelledby="pills-disabled-tab"
-          tabindex="0"
-        >
-          Ini adalah konten tab Disabled.
-        </div>
-      </div>
-    </div>
-
-    <section></section>
+</div>
      <footer>
       <h3>@2025 Latihan Bootstrap</h3>
     </footer>
