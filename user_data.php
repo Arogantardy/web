@@ -59,8 +59,8 @@ $hasil = $conn->query($sql);
                         <input type="text" class="form-control" name="username" placeholder="Tuliskan username User" value="<?= $row["username"] ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="floatingTextarea2">Password</label>
-                        <textarea class="form-control" placeholder="Tuliskan password User" name="password" required><?= $row["password"] ?></textarea>
+                        <label for="floatingTextarea2">Password (kosongkan jika tidak ingin mengganti)</label>
+                        <textarea class="form-control" placeholder="Kosongkan untuk mempertahankan password lama" name="password"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">Ganti Foto</label>
@@ -79,6 +79,9 @@ $hasil = $conn->query($sql);
                         ?>
                         <input type="hidden" name="foto_lama" value="<?= $row["foto"] ?>">
                     </div>
+                </div>
+                <div>
+                    <p class= "text-danger">*Kosongkan password jika tidak ingin mengganti; isi jika ingin mengganti.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
