@@ -80,21 +80,12 @@ include "upload_foto.php";
 //jika tombol simpan diklik
 if (isset($_POST['simpan'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $tanggal = date("Y-m-d H:i:s");
     $foto = '';
     $nama_foto = $_FILES['foto']['name'];
-//hash password otomatis
-// Cek apakah input tidak kosong
-if (!empty($password)) {
-    
-    // Melakukan hashing dengan md5
-    $password = md5($password);
-    
-    // Di sini kamu biasanya menjalankan query INSERT ke database
-} else {
-    echo "Input password kosong!";
-}
+// Note: We'll only hash a new password when provided.
+// If editing and password is empty, we'll keep the existing hashed password from DB.
 
 
     //jika ada file yang dikirim  
@@ -130,6 +121,19 @@ if (!empty($password)) {
             unlink("img/" . $_POST['foto_lama']);
         }
 
+        // Handle password for update: if admin left password empty, keep current password
+        if ($password === '') {
+            $stmt_tmp = $conn->prepare("SELECT password FROM user WHERE id = ?");
+            $stmt_tmp->bind_param("i", $id);
+            $stmt_tmp->execute();
+            $stmt_tmp->bind_result($existing_password);
+            $stmt_tmp->fetch();
+            $stmt_tmp->close();
+            $password_to_save = $existing_password;
+        } else {
+            $password_to_save = md5($password);
+        }
+
         $stmt = $conn->prepare("UPDATE user 
                                 SET 
                                 password =?,
@@ -137,14 +141,22 @@ if (!empty($password)) {
                                 username = ?
                                 WHERE id = ?");
 
-        $stmt->bind_param("sssi", $password, $foto, $username, $id);
+        $stmt->bind_param("sssi", $password_to_save, $foto, $username, $id);
         $simpan = $stmt->execute();
     } else {
 		    //jika tidak ada id, lakukan insert data baru
+        // For new user, password is required
+        if ($password === '') {
+            echo "<script>alert('Input password kosong!');document.location='admin.php?page=user';</script>";
+            exit;
+        }
+
+        $password_hashed = md5($password);
+
         $stmt = $conn->prepare("INSERT INTO user (password,foto,username)
                                 VALUES (?,?,?)");
 
-        $stmt->bind_param("sss",$password, $foto, $username);
+        $stmt->bind_param("sss", $password_hashed, $foto, $username);
         $simpan = $stmt->execute();
     }
 
